@@ -6,7 +6,6 @@
     <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <Deterministic>true</Deterministic>
     <RepositoryUrl>https://github.com/pnagoorkar/Baubit.Logging.DI</RepositoryUrl>
