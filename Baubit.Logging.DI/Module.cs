@@ -10,7 +10,7 @@ namespace Baubit.Logging.DI
     /// DI module for registering <see cref="ILoggerFactory"/> with Microsoft.Extensions.DependencyInjection.
     /// Configures logging providers based on the <see cref="Configuration"/> settings.
     /// </summary>
-    public class Module : AModule<Configuration>
+    public class Module : Baubit.DI.Module<Configuration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Module"/> class from configuration.

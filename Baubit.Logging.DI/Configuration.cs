@@ -1,12 +1,10 @@
-using Baubit.DI;
-
 namespace Baubit.Logging.DI
 {
     /// <summary>
     /// Configuration class for the Logging DI module.
     /// Specifies which logging providers to register in the service collection.
     /// </summary>
-    public class Configuration : AConfiguration
+    public class Configuration : Baubit.DI.Configuration
     {
         /// <summary>
         /// Gets or sets whether to add the console logging provider.
