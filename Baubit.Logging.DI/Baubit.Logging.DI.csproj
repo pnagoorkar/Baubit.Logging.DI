@@ -1,11 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>Latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <Deterministic>true</Deterministic>
     <RepositoryUrl>https://github.com/pnagoorkar/Baubit.Logging.DI</RepositoryUrl>
@@ -22,11 +26,20 @@
     <None Include="../LICENSE" Pack="true" PackagePath="." />
   </ItemGroup>
 
+  <!-- Use project reference when UseLocalBaubitDependencies is true -->
+  <ItemGroup Condition="'$(UseLocalBaubitDependencies)' == 'true'">
+    <ProjectReference Include="$(BaubitDIExtensionsProjectPath)" />
+  </ItemGroup>
+
+  <!-- Use package reference when UseLocalBaubitDependencies is false -->
+  <ItemGroup Condition="'$(UseLocalBaubitDependencies)' != 'true'">
+    <PackageReference Include="Baubit.DI.Extensions" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Baubit.DI.Extensions" Version="2025.49.3" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.5" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.5" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
   </ItemGroup>
 
 </Project>

@@ -164,7 +164,7 @@ namespace Baubit.Logging.DI.Test.Module
                                          {
                                              config.AddConsole = true;
                                              config.AddDebug = true;
-                                         })
+                                         }, cfg => new DI.Module(cfg))
                                          .BuildServiceProvider();
 
             // Assert
@@ -216,7 +216,7 @@ namespace Baubit.Logging.DI.Test.Module
             var module = new DI.Module(configuration);
 
             // Assert
-            Assert.IsAssignableFrom<Baubit.DI.AModule<DI.Configuration>>(module);
+            Assert.IsAssignableFrom<Baubit.DI.Module<DI.Configuration>>(module);
         }
 
         [Fact]
