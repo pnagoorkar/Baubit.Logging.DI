@@ -33,7 +33,7 @@ Load logging configuration from JSON. Module types and settings are defined in c
 
 ```csharp
 await Host.CreateApplicationBuilder()
-          .UseConfiguredServiceProviderFactory()
+          .WithDefaultServiceProviderFactory()
           .Build()
           .RunAsync();
 ```
@@ -71,7 +71,7 @@ public class AppComponent : AComponent
 }
 
 await Host.CreateEmptyApplicationBuilder(new HostApplicationBuilderSettings())
-          .UseConfiguredServiceProviderFactory(componentsFactory: () => [new AppComponent()])
+          .WithDefaultServiceProviderFactory(components: [new AppComponent()])
           .Build()
           .RunAsync();
 ```
@@ -82,7 +82,7 @@ Combine configuration-based and code-based module loading.
 
 ```csharp
 await Host.CreateApplicationBuilder()
-          .UseConfiguredServiceProviderFactory(componentsFactory: () => [new AppComponent()])
+          .WithDefaultServiceProviderFactory(components: [new AppComponent()])
           .Build()
           .RunAsync();
 ```
